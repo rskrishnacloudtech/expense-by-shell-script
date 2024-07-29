@@ -49,7 +49,7 @@ systemctl start mysqld &>> LOGFILE_NAME
 VALIDATE $? "Starting the mysqld service"
 
 # Resetting the mysql default root password by applying the idempotency.
-mysql -h db.expense.rskcloudtech.online -uroot -p${mysql_root_password}
+mysql -h db.expense.rskcloudtech.online -uroot -p${mysql_root_password} &>> LOGFILE_NAME
 if [ $? -ne 0 ]
 then
     echo -e "$G Root passowrd is not set already. Setting now.... $N"
