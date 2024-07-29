@@ -5,7 +5,7 @@ USERID=$(id -u)
 
 # Creating a LOFGILE_NAME with TIMESTAMP and SCRIPT_NAME to store the logs of a commands.
 TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=${echo $0 | cut -d "." -f1}
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE_NAME=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 # Declaring a color codes to used in the logs.
