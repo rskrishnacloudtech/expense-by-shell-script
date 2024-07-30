@@ -37,23 +37,23 @@ else
 fi
 
 # Installing mysql-server in the EC2 instance.
-dnf install mysql-server -y &>> LOGFILE_NAME
+dnf install mysql-server -y &>> $LOGFILE_NAME
 VALIDATE $? "Installing mysql-server"
 
 # Enabling the mysqld service.
-systemctl enable mysqld &>> LOGFILE_NAME
+systemctl enable mysqld &>> $LOGFILE_NAME
 VALIDATE $? "Enabling mysqls service"
 
 # Startign the mysqld service.
-systemctl start mysqld &>> LOGFILE_NAME
+systemctl start mysqld &>> $LOGFILE_NAME
 VALIDATE $? "Starting the mysqld service"
 
 # Resetting the mysql default root password by applying the idempotency.
-mysql -h db.expense.rskcloudtech.online -uroot -p${mysql_root_password} -e "show databases;" &>> LOGFILE_NAME
+mysql -h db.expense.rskcloudtech.online -uroot -p${mysql_root_password} -e "show databases;" &>> $LOGFILE_NAME
 if [ $? -ne 0 ]
 then
     echo -e "$G Root passowrd is not set already. Setting now.... $N"
-    mysql_secure_installation --set-root-pass ${mysql_root_password}  &>> LOGFILE_NAME
+    mysql_secure_installation --set-root-pass ${mysql_root_password}  &>> $LOGFILE_NAME
     VALIDATE $? "Resetting mysql root password"
 else
     echo -e "Root password is already set... $Y SKIPPING $N"
