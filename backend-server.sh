@@ -56,6 +56,7 @@ then
     VALIDATE $? "Creating the expense user"
 else
     echo -e "Expense user is already created... $Y SKIPPING $N" 
+fi
 
 # Creating a app diretory if its already created it will be skipped.
 mkdir -p /app &>> $LOGFILE_NAME
