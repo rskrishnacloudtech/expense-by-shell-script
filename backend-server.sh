@@ -77,7 +77,7 @@ npm install &>> $LOGFILE_NAME
 VALIDATE $? "Installing the npm package."
 
 # Copying the backend.service to the /etc/systemd/system/ directory.
-cp ~/expense-by-shell-script/backend.service /etc/systemd/system/backend.service &>> $LOGFILE_NAME
+cp /home/ec2-user/expense-by-shell-script/backend.service /etc/systemd/system/backend.service &>> $LOGFILE_NAME
 VALIDATE $? "Copied backend.service file"
 
 # Reloading the daemon.
