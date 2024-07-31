@@ -62,7 +62,7 @@ unzip /tmp/frontend.zip &>> $LOGFILE_NAME
 VALIDATE $? "Unzippinng the application code"
 
 # Copying the appliction expense.conf file to etc/nginx/default.d/
-cp ~/expense-by-shell-script/expense.conf /etc/nginx/default.d/expense.conf &>> $LOGFILE_NAME
+cp /home/ec2-user/expense-by-shell-script/expense.conf /etc/nginx/default.d/expense.conf &>> $LOGFILE_NAME
 VALIDATE $? "Copied expense.conf file"
 
 # Restarting the nginx service.
