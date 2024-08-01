@@ -14,9 +14,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-# MySql root password.
-mysql_root_password=ExpenseApp@1
-
 # Function to check that exit status of the command ran with colors to the result.
 VALIDATE() {
     if [ $1 -ne 0 ]
